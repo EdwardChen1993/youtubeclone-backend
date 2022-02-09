@@ -18,10 +18,20 @@ module.exports = appInfo => {
   // add your middleware config here
   config.middleware = [];
 
+  config.mongoose = {
+    client: {
+      url: 'mongodb://127.0.0.1:27017/youtube-clone',
+      options: { useUnifiedTopology: true },
+      // mongoose global plugins, expected a function or an array of function and options
+      // plugins: [ createdPlugin, [ updatedPlugin, pluginOptions ]],
+    },
+  };
+
   // add your user config here
   const userConfig = {
     // myAppName: 'egg',
   };
+
 
   return {
     ...config,
