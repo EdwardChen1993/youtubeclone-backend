@@ -16,7 +16,7 @@ module.exports = appInfo => {
   config.keys = appInfo.name + '_1644376579263_3260';
 
   // add your middleware config here
-  config.middleware = [];
+  config.middleware = [ 'errorHandler' ];
 
   config.mongoose = {
     client: {
@@ -25,6 +25,17 @@ module.exports = appInfo => {
       // mongoose global plugins, expected a function or an array of function and options
       // plugins: [ createdPlugin, [ updatedPlugin, pluginOptions ]],
     },
+  };
+
+  config.security = {
+    csrf: {
+      enable: false,
+    },
+  };
+
+  config.jwt = {
+    secret: 'b3ae5bf2-8ec6-428a-887c-b8aa8e76ddbf',
+    expiresIn: '1d',
   };
 
   // add your user config here
