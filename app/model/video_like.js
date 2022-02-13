@@ -1,21 +1,21 @@
 'use strict';
 
-// app/model/video_comment.js
 module.exports = app => {
   const mongoose = app.mongoose;
   const Schema = mongoose.Schema;
 
-  const commentSchema = new Schema({
-    content: { // 评论内容
-      type: String,
+  const likeSchema = new Schema({
+    like: { // 点赞状态
+      type: Number,
+      enum: [ 1, -1 ], // 喜欢 1，不喜欢 -1
       required: true,
     },
-    user: { // 评论用户
+    user: { // 点赞用户
       type: mongoose.ObjectId,
       ref: 'User',
       required: true,
     },
-    video: { // 评论视频
+    video: { // 点赞视频
       type: mongoose.ObjectId,
       ref: 'Video',
       required: true,
@@ -30,5 +30,5 @@ module.exports = app => {
     },
   });
 
-  return mongoose.model('Comment', commentSchema);
+  return mongoose.model('VideoLike', likeSchema);
 };

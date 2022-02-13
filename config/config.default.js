@@ -38,6 +38,10 @@ module.exports = appInfo => {
     expiresIn: '1d',
   };
 
+  config.cors = {
+    origin: '*',
+  };
+
   // add your user config here
   const userConfig = {
     // myAppName: 'egg',

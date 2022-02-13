@@ -1,6 +1,5 @@
 'use strict';
 
-// app/config/video.js
 module.exports = app => {
   const mongoose = app.mongoose;
   const Schema = mongoose.Schema;
